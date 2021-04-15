@@ -167,7 +167,7 @@ def pinjam():
             if jumlah > datas[find_raw(id, datas)][3]:
                 print(f"Item {datas[find_raw(id, datas)][1]} tidak berhasil dipinjam. Jumlah tidak cukup!")
             else:
-                print(f"Item {datas[find_raw(id, datas)][1]} berhasil dipinjam!")
+                print(f"Item {datas[find_raw(id, datas)][1]} (x{jumlah}) berhasil dipinjam!")
                 datas[find_raw(id, datas)][3] -= jumlah
                 datas_as_string = convert_datas_to_string(id,datas)
                 f = open("Gadget.csv", "w")
