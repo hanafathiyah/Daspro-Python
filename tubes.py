@@ -29,6 +29,9 @@ def open_gadget_csv():
 
     return datas
 
+gadget_csv_origin = open_gadget_csv()
+gadget_csv_modified = open_gadget_csv()
+
 def open_consumable_csv():
 
     f = open("Consumable.csv","r")
@@ -59,7 +62,10 @@ def open_consumable_csv():
         datas.append(real_values)
 
     return datas
-    
+
+consumable_csv_origin = open_consumable_csv()
+consumable_csv_modified = open_consumable_csv()  
+
 def is_id_available(id,datas):
     i = 0
     available = False
@@ -125,9 +131,9 @@ def tambah_item():
         print("Gagal menambahkan item karena ID tidak valid.")
     else: 
         if (isGadgetOrConsumable(id) == "gadget"):
-            datas = open_gadget_csv()
+            datas = gadget_csv_modified
         else:
-            datas = open_consumable_csv()
+            datas = consumable_csv_modified
         if(is_id_available(id, datas) == True):
             print("Gagal menambahkan item karena ID sudah ada.")
         else:
@@ -144,17 +150,13 @@ def tambah_item():
                 else:
                     new_item = [id,nama,deskripsi,jumlah,rarity]
                 print("Item telah berhasil ditambahkan ke database.")
-                datas.append(new_item)
-                data_as_string = convert_datas_to_string(id, datas)
                 if (isGadgetOrConsumable(id) == "gadget"):
-                    f = open("Gadget.csv", "w")
+                    gadget_csv_modified.append(new_item)
                 else:
-                    f = open("Consumable.csv", "w")
-                f.write(data_as_string)
-                f.close()
+                    consumable_csv_modified.append(new_item)
 
 def pinjam():
-    datas = open_gadget_csv()
+    datas = gadget_csv_modified
     id = input("Masukan ID: ")
     if (not is_id_valid(id)):
         print("Gagal meminjam item karena ID tidak valid.")
@@ -168,13 +170,16 @@ def pinjam():
                 print(f"Item {datas[find_raw(id, datas)][1]} tidak berhasil dipinjam. Jumlah tidak cukup!")
             else:
                 print(f"Item {datas[find_raw(id, datas)][1]} (x{jumlah}) berhasil dipinjam!")
-                datas[find_raw(id, datas)][3] -= jumlah
-                datas_as_string = convert_datas_to_string(id,datas)
-                f = open("Gadget.csv", "w")
-                f.write(datas_as_string)
-                f.close()    
-perintah = input()
-if (perintah == "tambahitem"):
-    tambah_item()
-elif(perintah == "pinjam"):
-    pinjam()
+                gadget_csv_modified[find_raw(id, datas)][3] -= jumlah
+                
+exit = False
+
+while exit == False:
+    perintah = input()
+    if (perintah == "tambahitem"):
+        tambah_item()
+    elif(perintah == "pinjam"):
+        pinjam()
+    elif(perintah == "exit"):
+        print(gadget_csv_modified)
+        exit = True
