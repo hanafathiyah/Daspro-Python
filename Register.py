@@ -42,13 +42,22 @@ print(">> register")
 new_user_idx = datas[-1][0] + 1
 new_user_name = input("Masukkan nama: ")
 upper_new_user_name = new_user_name.title()
-new_user_username = input("Masukkan username: ")
+
+# Ngecek apakah username sudah unik sebelum melanjutkan regis
+unique = False
+while unique == False:
+  new_user_username = input("Masukkan username: ")
+  ketemu = any(new_user_username in sub for sub in datas)
+  if ketemu == True:
+    print("Username telah dipakai!\n")
+    unique = False
+  else :
+    unique = True
+
 new_user_addres = input("Masukkan alamat: ")
 new_user_password = input("Masukkan password: ")
-new_user_role = "user"
+new_user_role = "User"
 new_user = [new_user_idx, new_user_username, upper_new_user_name, new_user_addres, new_user_password, new_user_role]
-
-print("\nUser", new_user_username, "telah berhasil register ke dalam Kantong Ajaib.")
 
 datas.append(new_user)
 datas_as_string = convert_datas_to_string()
