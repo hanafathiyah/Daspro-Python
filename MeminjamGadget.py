@@ -1,69 +1,90 @@
-f = open("Gadget.csv","r")
-raw_line = f.readlines()
-f.close()
-lines = [raw_line.replace("\n", "") for raw_line in raw_line]
+def open_gadget_csv():
 
-def array_menjadi_nilai_real(array_data) :
-    arr_cpy = array_data[:]
-    for i in range (6) :
-        if (i == 3) :
-            arr_cpy[i] = int(arr_cpy[i])
-        elif (i == 6 ) : 
-            arr_cpy[i] = int(arr_cpy[i])
-    return arr_cpy
+    f = open("Gadget.csv","r")
+    raw_lines = f.readlines()
+    f.close()
+    lines = [raw_line.replace("\n","") for raw_line in raw_lines]
 
-def baris_menjadi_data(line) : 
-    raw_lines_list = []
-    kata = ''
-    for ch in line :
-        if ch == ';':
-            raw_lines_list.append(kata)
-            kata = ''
-        else :
-            kata += ch
-    lines_list = [data.strip() for data in raw_lines_list]
-    return lines_list
+    def convert_array_data_to_real_values(array_data):
+        arr_cpy = array_data[:]
+        for i in range(6):
+            if ( i == 3 or i == 5 ):
+                arr_cpy[i] = int(arr_cpy[i])   
+        return arr_cpy
 
-raw_header = lines.pop(0)
-header = baris_menjadi_data(raw_header)
+    def convert_line_to_data(line):
+        raw_array_of_data = line.split(";")
+        array_of_data = [data.strip() for data in raw_array_of_data]
+        return array_of_data
 
-datas = []
-for line in lines :
-    lines_list = baris_menjadi_data(line)
-    nilai_asli = array_menjadi_nilai_real(lines_list)
-    datas.append(nilai_asli)
+    raw_header = lines.pop(0)
+    header = convert_line_to_data(raw_header)
 
-IDValid = False
-while IDValid == False :    
-    ID = input("Masukkan ID item : ")
-    ketemu =  False
-    a = 0
-    while ketemu == False and a < 7 : # Jumlah gadget di fix 8
-        if ID == datas[a][0] :
-            Barang = datas[a][1]
-            Jumlah = datas[a][3]
-            ketemu = True
-        else : 
-            a += 1 
-            ketemu = False
-    if a >= 7 : 
-        print("Gadget tidak ditemukan")
-        IDValid = False
-    else : 
-        IDValid = True
+    datas = []
 
+    for line in lines:
+        array_of_data = convert_line_to_data(line)
+        real_values = convert_array_data_to_real_values(array_of_data)
+        datas.append(real_values)
 
-TGL = input("Tanggal peminjaman : ")
+    return datas
 
+gadget_csv_modified = open_gadget_csv()
 
-NValid = False
-while NValid == False : 
-    N = int(input("Jumlah Peminjaman : "))
-    if N > Jumlah : 
-        print("Jumlah tidak valid!")
-        NValid = False
-    else : 
-        NValid = True
+def is_id_valid(id):
+    valid = False
+    if (id[0] == "G" or id[0] == "C"):
+        valid = True
+    return valid
 
-print("Gadget " + Barang + " (x" + str(N) + ") " + "telah berhasil dipinjam!")
+def is_id_available(id,datas):
+    i = 0
+    available = False
+    while i < banyak_data(datas) and available == False:
+        if (datas[i][0] == id):
+            available = True
+        else:
+            i += 1
+    return available
 
+def banyak_data(datas):
+    cnt = 0
+    for data in datas:
+        cnt += 1
+    return(cnt)
+
+def find_raw(id, datas):
+    i = 0
+    found = False
+    while i < banyak_data(datas) and found == False:
+        if (datas[i][0] == id):
+            found = True
+        else:
+            i += 1
+    return i
+
+def pinjam():
+    datas = gadget_csv_modified
+    id = input("Masukan ID: ")
+    while (not is_id_valid(id)) or (not is_id_available(id, datas)) :
+        if (not is_id_valid(id)):
+            print("Gagal meminjam item karena ID tidak valid.")
+            id = input("Masukan ID: ")
+        else: 
+            if(not is_id_available(id, datas)):
+                print("Gagal meminjam item karena ID tidak ada.")
+                id = input("Masukan ID: ")
+        
+    tgl = input("Tanggal peminjaman: ")
+    jumlah = int(input("Jumlah peminjaman: "))
+    
+    while jumlah > datas[find_raw(id, datas)][3]:
+        print(f"Item {datas[find_raw(id, datas)][1]} tidak berhasil dipinjam. Jumlah peminjaman terlalu banyak!")
+        jumlah = int(input("Jumlah peminjaman: "))
+    while jumlah <= 0 : 
+        print(f"Item {datas[find_raw(id, datas)][1]} tidak berhasil dipinjam. Jumlah peminjaman harus lebih besar dari 0")
+        jumlah = int(input("Jumlah peminjaman: "))
+    print(f"Item {datas[find_raw(id, datas)][1]} (x{jumlah}) berhasil dipinjam!")
+    gadget_csv_modified[find_raw(id, datas)][3] -= jumlah
+
+pinjam()
