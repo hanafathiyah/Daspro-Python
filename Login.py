@@ -66,7 +66,7 @@ while is_username_valid(user_username,datas) == False or is_password_valid(user_
   user_username = input("\nMasukkan username: ")
   user_password = input("Masukkan password: ")
 
-print("\nHalo ", user_username, "! Selamt datang di Kantong Ajaib.")
+print("\nHalo", user_username, "! Selamat datang di Kantong Ajaib.")
 
 datas_as_string = convert_datas_to_string()
 
