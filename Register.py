@@ -45,13 +45,20 @@ upper_new_user_name = new_user_name.title()
 
 # Ngecek apakah username sudah unik sebelum melanjutkan regis
 unique = False
-while unique == False:
-  new_user_username = input("Masukkan username: ")
-  ketemu = any(new_user_username in sub for sub in datas)
-  if ketemu == True:
-    print("Username telah dipakai!\n")
+while unique == False :
+  new_user_username = input("Masukkan username: ") 
+  ketemu = False
+  i = 0
+  while ketemu == False and i < len(datas):
+    if datas[i][1] == new_user_username:
+      ketemu = True
+      print("Username telah digunakan") 
+    else:
+      ketemu = False
+      i += 1
+  if ketemu == True and i >= len(datas):
     unique = False
-  else :
+  elif ketemu == False and i >= len(datas):
     unique = True
 
 new_user_addres = input("Masukkan alamat: ")
