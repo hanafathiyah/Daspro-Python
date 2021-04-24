@@ -54,6 +54,7 @@ def convert_lines_to_raw_data(lines):
             else:
                 kata += char
         
+        raw_line_list.append(kata)
         # menghapus spasi awal dan akhir tiap sel menggunakan fungsi .strip()
         line_list = [word.strip() for word in raw_line_list]
         raw_data.append(line_list)
