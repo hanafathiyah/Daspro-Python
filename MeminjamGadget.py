@@ -7,12 +7,7 @@ from adding_function import is_rarity_valid
 from adding_function import isGadgetOrConsumable
 from adding_function import banyak_data
 
-# Mengambil username
-import Login
-from Login import user_username
-
-
-load_data("folder_isi")
+# load_data("folder_isi")
 def pinjam():
 
     datas = data.gadget
@@ -25,7 +20,6 @@ def pinjam():
     else : 
         tgl = input("Tanggal peminjaman: ")
         jumlah = int(input("Jumlah peminjaman: "))
-        
         if jumlah > datas[find_raw(id, datas)][3]:
             print(f"Item {datas[find_raw(id, datas)][1]} tidak berhasil dipinjam. Jumlah peminjaman terlalu banyak!")
         if jumlah <= 0 : 
@@ -35,8 +29,7 @@ def pinjam():
         is_returned = False
 
         # Pengambilan id_username
-
-    
+        id_username = data.user_login[0]
 
         # Pembuatan id transaksi otomatis
         id_transaksi = 1
@@ -53,4 +46,4 @@ def pinjam():
         # Penambahan pada array
         new_peminjaman = [id_transaksi,id_username, id, tgl, jumlah, is_returned]
         data.gadget_borrow_history.append(new_peminjaman)
-pinjam()
+# pinjam()

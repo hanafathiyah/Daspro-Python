@@ -35,5 +35,10 @@ def login():
         print("\nMasukan username/password salah")
         user_username = input("\nMasukkan username: ")
         user_password = input("Masukkan password: ")
+    
+    for array in datas:
+        if (array[1] == user_username):
+            data.user_login = array
+            break
 
     print("\nHalo", user_username, "! Selamat datang di Kantong Ajaib.")
