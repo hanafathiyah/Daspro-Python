@@ -15,7 +15,7 @@ def is_id_available(id,datas): # mengecek ketersediaan id dalam database
 def is_id_valid(id): # validasi id
     valid = False # inisialisasi
     if (id[0] == "G" or id[0] == "C"): # id valid
-        if id[1:].isnumeric():
+        if id[1:].isnumeric() and int(id[1:]) > 0:
             valid = True
     return valid
 
