@@ -8,7 +8,8 @@ load_data("folder_isi")
 # procedure melihat riwayat peminjaman gadget
 def riwayatpinjam():
     datas = data.gadget_borrow_history
-    datas_sort = sortTanggal(datas) # data yang telah terurut descending berdasarkan tahun disimpan dalam array datas_sort
+    f = "riwayatpinjam"
+    datas_sort = sortTanggal(datas,f) # data yang telah terurut descending berdasarkan tahun disimpan dalam array datas_sort
     i = 0
     while (i < len(datas_sort)): # perulangan untuk mencetak data ke layar
         print("ID Peminjaman\t\t:", datas_sort[i][0])

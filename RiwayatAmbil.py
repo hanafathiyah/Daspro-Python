@@ -9,7 +9,8 @@ load_data("folder_isi")
 # procedure melihat riwayat pengambilan consumable
 def riwayatambil():
     datas = data.consumable_history
-    datas_sort = sortTanggal(datas) # data yang telah terurut descending berdasarkan tahun disimpan dalam array datas_sort
+    f = "riwayatambil"
+    datas_sort = sortTanggal(datas,f) # data yang telah terurut descending berdasarkan tahun disimpan dalam array datas_sort
     i = 0
     while (i < len(datas_sort)): # perulangan untuk mencetak data ke layar
         print("ID Pengambilan\t\t:", datas_sort[i][0])

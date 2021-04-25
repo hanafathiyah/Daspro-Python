@@ -97,7 +97,7 @@ def banyak_data(datas): # menghitung banyak data
         cnt += 1
     return(cnt) # banyak data
 
-def sortTanggal(arr): # mengurutkan data descending berdasarkan tanggal menggunakan selection sort
+def sortTanggal(arr,f): # mengurutkan data descending berdasarkan tanggal menggunakan selection sort
 
     datas = []
 
@@ -117,23 +117,37 @@ def sortTanggal(arr): # mengurutkan data descending berdasarkan tanggal mengguna
 
         return ((intYY-1)*365+(intMM-1)*30+intDD)
 
-    def get_max(arr, index_start): 
-        maks = convert_date_to_days(arr[index_start][3])
-    # mendapatkan maksimum array dari indeks indeks_start sampai selesai
-        for i in range(index_start+1, len(arr)):
-            if convert_date_to_days(arr[i][3]) > maks:
-                maks = convert_date_to_days(arr[i][3])  
-        return maks      
+    def get_max(arr, index_start, f): 
+        if (f == "riwayatambil" or f == "riwayatpinjam"):
+            maks = convert_date_to_days(arr[index_start][3])
+        # mendapatkan maksimum array dari indeks indeks_start sampai selesai
+            for i in range(index_start+1, len(arr)):
+                if convert_date_to_days(arr[i][3]) > maks:
+                    maks = convert_date_to_days(arr[i][3])  
+            return maks 
+        else:
+            maks = convert_date_to_days(arr[index_start][2])
+        # mendapatkan maksimum array dari indeks indeks_start sampai selesai
+            for i in range(index_start+1, len(arr)):
+                if convert_date_to_days(arr[i][2]) > maks:
+                    maks = convert_date_to_days(arr[i][2])  
+            return maks      
 
-    def get_idx(arr, number):
+    def get_idx(arr, number, f):
     # mendapatkan index dari suatu angka dalam array
         i = 0
         found = False
         while(found == False and i < len(arr)):
-            if convert_date_to_days(arr[i][3]) == number:
-                found = True
+            if (f == "riwayatambil" or f == "riwayatpinjam"):
+                if convert_date_to_days(arr[i][3]) == number:
+                    found = True
+                else:
+                    i += 1
             else:
-                i += 1
+                if convert_date_to_days(arr[i][2]) == number:
+                    found = True
+                else:
+                    i += 1                
         return i
 
     def swap(array, indeks_1, indeks_2):
@@ -143,8 +157,8 @@ def sortTanggal(arr): # mengurutkan data descending berdasarkan tanggal mengguna
         array[indeks_1] = tmp
 
     for i in range(len(arr)):
-        maxArr = get_max(arr, i)
-        maxIdx = get_idx(arr, maxArr)
+        maxArr = get_max(arr, i, f)
+        maxIdx = get_idx(arr, maxArr, f)
         swap(arr, i, maxIdx)
         datas.append(arr[i])
 
