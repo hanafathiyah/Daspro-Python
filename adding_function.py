@@ -1,3 +1,7 @@
+import data
+from LoadData import load_data
+load_data("folder_isi")
+
 def is_id_available(id,datas): # mengecek ketersediaan id dalam database
     i = 0 # inisialisasi
     available = False # inisialisasi
@@ -47,7 +51,40 @@ def is_jumlah_valid(jumlah): # validasi jumlah
             return True
     else: # jumlah bukan merupakan angka
         return False
-    
+
+def find_user_name_id(id): # mencari nama user berdasarkan id
+    i = 0 # inisialisasi
+    datas = data.user
+    found = False # inisialisasi
+    while i < banyak_data(datas) and found == False: 
+        if (datas[i][0] == id): # id berhasil ditemukan
+            found = True
+        else:
+            i += 1
+    return datas[i][2]
+
+def find_gadget_name_id(id): # mencari nama gadget berdasarkan id
+    i = 0 # inisialisasi
+    datas = data.gadget
+    found = False # inisialisasi
+    while i < banyak_data(datas) and found == False: 
+        if (datas[i][0] == id): # id berhasil ditemukan
+            found = True
+        else:
+            i += 1
+    return datas[i][1]
+
+def find_consumable_name_id(id): # mencari nama consumable berdasarkan id
+    i = 0 # inisialisasi
+    datas = data.consumable
+    found = False # inisialisasi
+    while i < banyak_data(datas) and found == False: 
+        if (datas[i][0] == id): # id berhasil ditemukan
+            found = True
+        else:
+            i += 1
+    return datas[i][1]
+
 def isGadgetOrConsumable(id): # mengecek apakah item tersebut gadget atau consumable
     if (id[0] == "G"): # item adalah gadget
         return "gadget"
@@ -59,3 +96,57 @@ def banyak_data(datas): # menghitung banyak data
     for data in datas:
         cnt += 1
     return(cnt) # banyak data
+
+def sortTanggal(arr): # mengurutkan data descending berdasarkan tanggal menggunakan selection sort
+
+    datas = []
+
+    def convert_date_to_days(date): # mengubah tanggal jadi jumlah hari (dihitung dari 0 Masehi)
+        intDD = 0
+        if int(date[0]) == 0:
+            intDD += int(date[1:2])
+        else:
+            intDD += int(date[0:2])
+
+        intMM = 0
+        if int(date[3]) == 0:
+            intMM += int(date[4:5])
+        else:
+            intMM += int(date[3:5])
+        intYY = int(date[6:10])
+
+        return ((intYY-1)*365+(intMM-1)*30+intDD)
+
+    def get_max(arr, index_start): 
+        maks = convert_date_to_days(arr[index_start][3])
+    # mendapatkan maksimum array dari indeks indeks_start sampai selesai
+        for i in range(index_start+1, len(arr)):
+            if convert_date_to_days(arr[i][3]) > maks:
+                maks = convert_date_to_days(arr[i][3])  
+        return maks      
+
+    def get_idx(arr, number):
+    # mendapatkan index dari suatu angka dalam array
+        i = 0
+        found = False
+        while(found == False and i < len(arr)):
+            if convert_date_to_days(arr[i][3]) == number:
+                found = True
+            else:
+                i += 1
+        return i
+
+    def swap(array, indeks_1, indeks_2):
+    # swap elemen array indeks 1 dengan indeks 2
+        tmp = array[indeks_2]
+        array[indeks_2] = array[indeks_1]
+        array[indeks_1] = tmp
+
+    for i in range(len(arr)):
+        maxArr = get_max(arr, i)
+        maxIdx = get_idx(arr, maxArr)
+        swap(arr, i, maxIdx)
+        datas.append(arr[i])
+
+    return datas
+
