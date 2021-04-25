@@ -1,0 +1,10 @@
+﻿id;username;nama;alamat;password;role
+1;abcd;Dora;jalan abcdef;1234;user
+2;Admin;Admin;Jalan Ganesha;Admin;Admin
+3;Hana;Hana Fathiyah;Cimahi;HelloHana;user
+4;Akmal;Akmal Arifin;Sidoarjo;HelloAkmal;user
+5;Kofifan;Kofifan Hertza;Banding;HelloKofin;user
+6;Natasha;Natasha Silaban;Medan;HelloNatasha;user
+7;TuanMor;Tuan Mor;Olympia;HelloTuanMor;user
+8;TuanVin;Tuan Vin;Olympia;HelloTuanVin;user
+9;TuanYon;Tuan Yon;Olympia;HelloTuanYon;user
