@@ -29,6 +29,24 @@ def is_rarity_valid(rarity):
     if (rarity == "C" or rarity == "B" or rarity == "A" or rarity == "S"):
         valid = True
     return valid
+
+def is_tahun_valid(tahun):
+    if tahun.isalnum:
+        if int(tahun) <= 0:
+            return False
+        else:
+            return True
+    else:
+        return False
+
+def is_jumlah_valid(jumlah):
+    if jumlah.isalnum:
+        if int(jumlah) <= 0:
+            return False
+        else:
+            return True
+    else:
+        return False
     
 def isGadgetOrConsumable(id):
     if (id[0] == "G"):
