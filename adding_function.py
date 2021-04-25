@@ -15,7 +15,8 @@ def is_id_available(id,datas): # mengecek ketersediaan id dalam database
 def is_id_valid(id): # validasi id
     valid = False # inisialisasi
     if (id[0] == "G" or id[0] == "C"): # id valid
-        valid = True
+        if id[1:].isnumeric():
+            valid = True
     return valid
 
 def find_raw(id, datas): # mencari letak id (dalam baris)
@@ -35,7 +36,7 @@ def is_rarity_valid(rarity): # validasi rarity
     return valid
 
 def is_tahun_valid(tahun): # validasi tahun
-    if tahun.isalnum: # tahun merupakan angka
+    if tahun.isnumeric(): # tahun merupakan angka
         if int(tahun) <= 0: # tahun tidak valid
             return False
         else: # tahun valid
@@ -44,7 +45,7 @@ def is_tahun_valid(tahun): # validasi tahun
         return False
 
 def is_jumlah_valid(jumlah): # validasi jumlah
-    if jumlah.isalnum: # jumlah merupakan angka
+    if jumlah.isnumeric(): # jumlah merupakan angka
         if int(jumlah) <= 0: # jumlah tidak valid
             return False
         else: # jumlah valid
