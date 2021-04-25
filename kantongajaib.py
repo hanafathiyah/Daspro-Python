@@ -12,7 +12,7 @@ from RegisterAkmal      import register
 from Login              import login
 from LoadData           import load_data
 from MenambahItem       import tambah_item
-from MenghapusItem    import mengapus_gadget
+from MenghapusItem    import mengapus_item
 from MeminjamGadget     import pinjam
 from Exit import exit
 from SaveData import save_data
