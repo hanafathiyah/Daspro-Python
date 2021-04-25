@@ -6,3 +6,5 @@ def exit():
     if exit_input == 'y' or exit_input == 'Y' :
        print("\n")
        save_data()
+
+    quit()

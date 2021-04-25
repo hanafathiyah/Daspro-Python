@@ -41,6 +41,7 @@ def save_data():
 
 def convert_data_to_string(file_data, file_header):
     string_data = "; ".join(file_header)
+    string_data += "\n"
     for arr_data in file_data:
         arr_data_all_string = [str(var) for var in arr_data]
         string_data += ", ".join(arr_data_all_string)
