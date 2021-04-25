@@ -15,23 +15,18 @@ def register():
     upper_new_user_name = new_user_name.title()
 
     # Ngecek apakah username sudah unik sebelum melanjutkan regis
-    unique = False
-    while unique == False :
+    is_unique = False
+    while not(is_unique) :
         new_user_username = input("Masukkan username: ") 
-        ketemu = False
-        i = 0
-        while ketemu == False and i < banyak_data(datas):
-            if datas[i][1] == new_user_username:
-                ketemu = True
+        is_ketemu = False
+        for array in (datas):
+            if array[1] == new_user_username:
+                is_ketemu = True
                 print("\nUsername telah digunakan") 
                 print("Silahkan masukkan username lain.\n")
-            else:
-                ketemu = False
-                i += 1
-        if ketemu == True and i >= banyak_data(datas):
-            unique = False
-        elif ketemu == False and i >= banyak_data(datas):
-            unique = True
+                break
+        if not(is_ketemu):
+            is_unique = True
 
     new_user_addres = input("Masukkan alamat: ")
     new_user_password = input("Masukkan password: ")
