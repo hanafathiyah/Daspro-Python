@@ -10,8 +10,11 @@ from adding_function import banyak_data
 load_data('folder_isi')
 
 def mengapus_gadget() :
-    datas = data.gadget
     id = input("Masukan ID: ")
+    if (isGadgetOrConsumable(id) == "gadget"): # Data yang di Load Gadget
+        datas = data.gadget
+    else: # Data yang di Load Consumable
+        datas = data.consumable 
     
     # Verifikasi ID
     if (not is_id_valid(id)): 
