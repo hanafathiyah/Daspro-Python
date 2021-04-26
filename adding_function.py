@@ -165,3 +165,14 @@ def sortTanggal(arr,f): # mengurutkan data descending berdasarkan tanggal menggu
 
     return datas
 
+def isAdmin(): # memvalidasi apakah role dari pengguna merupakan admin atau bukan
+    admin = False # inisialisasi
+    if(data.user_login[5] == "Admin"): # pengguna adalah admin
+        admin = True
+    return admin 
+
+def isUser(): # memvalidasi apakah role dari pengguna merupakan user atau bukan
+    user = False # inisialiasi
+    if(data.user_login[5] == "User"): # pengguna adalah user
+        user = True
+    return user
