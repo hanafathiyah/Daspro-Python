@@ -5,8 +5,8 @@ from adding_function import find_gadget_name_id
 
 
 # Command buat pengen test
-from Login import login
-load_data('folder_isi')
+# from Login import login
+# load_data('folder_isi')
 
 def mengembalikan_gadget() :
     role_user = data.user_login[5]
@@ -115,11 +115,5 @@ def mengembalikan_gadget() :
                         else : 
                             i += 1
     
-
-    
-    
-
-login()
-mengembalikan_gadget()
-print(data.gadget_borrow_history)
-print(data.gadget_return_history)
+# login()
+# mengembalikan_gadget()
