@@ -48,7 +48,7 @@ def convert_lines_to_raw_data(lines):
         raw_line_list = []
         kata = ''
         for char in line:
-            if char == ';':
+            if char == ',':
                 raw_line_list.append(kata)
                 kata = ''
             else:

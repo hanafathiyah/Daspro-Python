@@ -1,1 +1,2 @@
-﻿
+﻿id, username, nama, alamat, password, role
+0, Admin, Admin, Jalan Ganesha, Admin, admin
