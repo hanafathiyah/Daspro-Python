@@ -1,14 +1,11 @@
 import os
+import time
 import data
 
 def save_data():
     folder_penyimpanan = input("Masukkan nama folder penyimpanan: ")
-
-    if os.path.exists(folder_penyimpanan):
-        os.remove(folder_penyimpanan)
-        os.makedirs(folder_penyimpanan)
     
-    else:
+    if not(os.path.exists(folder_penyimpanan)):
         os.makedirs(folder_penyimpanan)
     
     string_user                   = convert_data_to_string(data.user, data.header_user)
@@ -37,10 +34,15 @@ def save_data():
     file_csv_gadget_borrow_history.close()
     file_csv_gadget_return_history.close()
     file_csv_consumable.close()
-    file_csv_consumable_history.close()    
+    file_csv_consumable_history.close()
+
+    print("\nLoading . . .")
+    time.sleep(2)
+    
+    print("\nData berhasil disimpan ke dalam folder %s" % folder_penyimpanan)
 
 def convert_data_to_string(file_data, file_header):
-    string_data = "; ".join(file_header)
+    string_data = ", ".join(file_header)
     string_data += "\n"
     for arr_data in file_data:
         arr_data_all_string = [str(var) for var in arr_data]

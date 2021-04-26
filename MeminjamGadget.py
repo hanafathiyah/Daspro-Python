@@ -25,7 +25,7 @@ def pinjam():
         elif jumlah <= 0 : 
             print(f"Item {datas[find_raw(id, datas)][1]} tidak berhasil dipinjam. Jumlah peminjaman harus lebih besar dari 0")
         else :
-            print(f"Item {datas[find_raw(id, datas)][1]} (x{jumlah}) berhasil dipinjam!")
+            print(f"Item {datas[find_raw(id, datas)][1]} (x{jumlah}) telah berhasil dipinjam!")
             data.gadget[find_raw(id, datas)][3] -= jumlah
             is_returned = False
 
