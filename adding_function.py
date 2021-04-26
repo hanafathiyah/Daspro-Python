@@ -2,22 +2,15 @@ import data
 from LoadData import load_data
 load_data("folder_isi")
 
-def is_id_available(id,datas): # mengecek ketersediaan id dalam database
-    i = 0 # inisialisasi
-    available = False # inisialisasi
-    while i < banyak_data(datas) and available == False:
-        if (datas[i][0] == id): # id tersedia
-            available = True
-        else: 
-            i += 1
-    return available
+## Prosedur menghitung banyak data dalam sebuah array
 
-def is_id_valid(id): # validasi id
-    valid = False # inisialisasi
-    if (id[0] == "G" or id[0] == "C"): # id valid
-        if id[1:].isnumeric() and int(id[1:]) > 0:
-            valid = True
-    return valid
+def banyak_data(datas): # menghitung banyak data
+    cnt = 0 # inisialisasi
+    for data in datas:
+        cnt += 1
+    return(cnt) # banyak data
+
+## Prosedur mencari dan translasi
 
 def find_raw(id, datas): # mencari letak id (dalam baris)
     i = 0 # inisialisasi
@@ -28,30 +21,6 @@ def find_raw(id, datas): # mencari letak id (dalam baris)
         else:
             i += 1
     return i
-
-def is_rarity_valid(rarity): # validasi rarity
-    valid = False # inisialisasi
-    if (rarity == "C" or rarity == "B" or rarity == "A" or rarity == "S"): # rarity valid
-        valid = True
-    return valid
-
-def is_tahun_valid(tahun): # validasi tahun
-    if tahun.isnumeric(): # tahun merupakan angka
-        if int(tahun) <= 0: # tahun tidak valid
-            return False
-        else: # tahun valid
-            return True
-    else: # tahun bukan merupakan angka
-        return False
-
-def is_jumlah_valid(jumlah): # validasi jumlah
-    if jumlah.isnumeric(): # jumlah merupakan angka
-        if int(jumlah) <= 0: # jumlah tidak valid
-            return False
-        else: # jumlah valid
-            return True
-    else: # jumlah bukan merupakan angka
-        return False
 
 def find_user_name_id(id): # mencari nama user berdasarkan id
     i = 0 # inisialisasi
@@ -86,17 +55,74 @@ def find_consumable_name_id(id): # mencari nama consumable berdasarkan id
             i += 1
     return datas[i][1]
 
+## Prosedur mengecek jenis item berdasarkan ID
+
 def isGadgetOrConsumable(id): # mengecek apakah item tersebut gadget atau consumable
     if (id[0] == "G"): # item adalah gadget
         return "gadget"
     else: # item adalah consumable
         return "consumable"
 
-def banyak_data(datas): # menghitung banyak data
-    cnt = 0 # inisialisasi
-    for data in datas:
-        cnt += 1
-    return(cnt) # banyak data
+## Prosedur validasi role
+
+def isAdmin(): # memvalidasi apakah role dari pengguna merupakan admin atau bukan
+    admin = False # inisialisasi
+    if(data.user_login[5] == "Admin"): # pengguna adalah admin
+        admin = True
+    return admin 
+
+def isUser(): # memvalidasi apakah role dari pengguna merupakan user atau bukan
+    user = False # inisialiasi
+    if(data.user_login[5] == "User"): # pengguna adalah user
+        user = True
+    return user  
+
+## Prosedur mengecek ketersediaan ID dalam data
+
+def is_id_available(id,datas): # mengecek ketersediaan id dalam database
+    i = 0 # inisialisasi
+    available = False # inisialisasi
+    while i < banyak_data(datas) and available == False:
+        if (datas[i][0] == id): # id tersedia
+            available = True
+        else: 
+            i += 1
+    return available
+
+## Prosedur validasi data
+
+def is_id_valid(id): # validasi id
+    valid = False # inisialisasi
+    if (id[0] == "G" or id[0] == "C"): # id valid
+        if id[1:].isnumeric() and int(id[1:]) > 0:
+            valid = True
+    return valid
+
+def is_jumlah_valid(jumlah): # validasi jumlah
+    if jumlah.isnumeric(): # jumlah merupakan angka
+        if int(jumlah) <= 0: # jumlah tidak valid
+            return False
+        else: # jumlah valid
+            return True
+    else: # jumlah bukan merupakan angka
+        return False
+
+def is_rarity_valid(rarity): # validasi rarity
+    valid = False # inisialisasi
+    if (rarity == "C" or rarity == "B" or rarity == "A" or rarity == "S"): # rarity valid
+        valid = True
+    return valid
+
+def is_tahun_valid(tahun): # validasi tahun
+    if tahun.isnumeric(): # tahun merupakan angka
+        if int(tahun) <= 0: # tahun tidak valid
+            return False
+        else: # tahun valid
+            return True
+    else: # tahun bukan merupakan angka
+        return False
+
+## Prosedur sortTanggal (untuk membantu perintah riwayat)
 
 def sortTanggal(arr,f): # mengurutkan data descending berdasarkan tanggal menggunakan selection sort
 
@@ -165,14 +191,4 @@ def sortTanggal(arr,f): # mengurutkan data descending berdasarkan tanggal menggu
 
     return datas
 
-def isAdmin(): # memvalidasi apakah role dari pengguna merupakan admin atau bukan
-    admin = False # inisialisasi
-    if(data.user_login[5] == "Admin"): # pengguna adalah admin
-        admin = True
-    return admin 
 
-def isUser(): # memvalidasi apakah role dari pengguna merupakan user atau bukan
-    user = False # inisialiasi
-    if(data.user_login[5] == "User"): # pengguna adalah user
-        user = True
-    return user
