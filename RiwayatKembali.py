@@ -16,6 +16,7 @@ def riwayatkembali():
         print("Nama Pengambil\t\t:", find_user_name_id(data.gadget_borrow_history[datas_sort[i][1]-1][1]))
         print("Nama Gadget\t\t:", find_gadget_name_id(data.gadget_borrow_history[datas_sort[i][1]-1][2]))
         print("Tanggal Pengembalian\t:", datas_sort[i][2])
+        print("Jumlah Pengembalian\t:", datas_sort[i][3])
         print("")
         if ((i + 1) % 5 == 0): # apabila pengguna ingin mengeluarkan entry tambahan
             tambahan = input("Next >> Y/N: ")
