@@ -10,6 +10,12 @@ from adding_function import banyak_data
 load_data('folder_isi')
 
 def mengapus_item() :
+    role_user = data.user_login[5]
+
+    # Validasi role user 
+    if (role_user != 'Admin') :
+        return print("Fungsi ini hanya dapat diakses oleh admin")
+
     id = input("Masukan ID: ")
     if (isGadgetOrConsumable(id) == "gadget"): # Data yang di Load Gadget
         datas = data.gadget

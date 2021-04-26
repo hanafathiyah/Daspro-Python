@@ -13,6 +13,12 @@ load_data("folder_isi")
 
 # procedure tambah_item
 def tambah_item(): 
+    role_user = data.user_login[5]
+
+    # Validasi role user 
+    if (role_user != 'Admin') :
+        return print("Fungsi ini hanya dapat diakses oleh admin")
+
     new_item = []
     datas = []
     id = input("Masukan ID: ") # input id

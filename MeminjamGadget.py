@@ -9,6 +9,12 @@ from adding_function import banyak_data
 
 # load_data("folder_isi")
 def pinjam():
+    role_user = data.user_login[5]
+
+    # Validasi role user 
+    if (role_user != 'user') :
+        return print("Fungsi ini hanya dapat diakses oleh user")
+
 
     datas = data.gadget
     id = input("Masukan ID: ")
