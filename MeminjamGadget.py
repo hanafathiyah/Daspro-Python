@@ -22,28 +22,29 @@ def pinjam():
         jumlah = int(input("Jumlah peminjaman: "))
         if jumlah > datas[find_raw(id, datas)][3]:
             print(f"Item {datas[find_raw(id, datas)][1]} tidak berhasil dipinjam. Jumlah peminjaman terlalu banyak!")
-        if jumlah <= 0 : 
+        elif jumlah <= 0 : 
             print(f"Item {datas[find_raw(id, datas)][1]} tidak berhasil dipinjam. Jumlah peminjaman harus lebih besar dari 0")
-        print(f"Item {datas[find_raw(id, datas)][1]} (x{jumlah}) berhasil dipinjam!")
-        data.gadget[find_raw(id, datas)][3] -= jumlah
-        is_returned = False
+        else :
+            print(f"Item {datas[find_raw(id, datas)][1]} (x{jumlah}) berhasil dipinjam!")
+            data.gadget[find_raw(id, datas)][3] -= jumlah
+            is_returned = False
 
-        # Pengambilan id_username
-        id_username = data.user_login[0]
+            # Pengambilan id_username
+            id_username = data.user_login[0]
 
-        # Pembuatan id transaksi otomatis
-        id_transaksi = 1
-        data_peminjaman = data.gadget_borrow_history
-        i = 0
-        available = False
-        while i < banyak_data(data_peminjaman) and available == False:
-            if (datas[i][0] != id_transaksi) and available == True :
-                available = True
-            else:
-                i += 1
-                id_transaksi += 1
+            # Pembuatan id transaksi otomatis
+            id_transaksi = 1
+            data_peminjaman = data.gadget_borrow_history
+            i = 0
+            available = False
+            while i < banyak_data(data_peminjaman) and available == False:
+                if (datas[i][0] != id_transaksi) and available == True :
+                    available = True
+                else:
+                    i += 1
+                    id_transaksi += 1
 
-        # Penambahan pada array
-        new_peminjaman = [id_transaksi,id_username, id, tgl, jumlah, is_returned]
-        data.gadget_borrow_history.append(new_peminjaman)
+            # Penambahan pada array
+            new_peminjaman = [id_transaksi,id_username, id, tgl, jumlah, is_returned]
+            data.gadget_borrow_history.append(new_peminjaman)
 # pinjam()

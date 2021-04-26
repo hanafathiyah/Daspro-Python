@@ -9,7 +9,7 @@ from adding_function import banyak_data
 
 load_data('folder_isi')
 
-def mengapus_gadget() :
+def mengapus_item() :
     id = input("Masukan ID: ")
     if (isGadgetOrConsumable(id) == "gadget"): # Data yang di Load Gadget
         datas = data.gadget
@@ -18,10 +18,10 @@ def mengapus_gadget() :
     
     # Verifikasi ID
     if (not is_id_valid(id)): 
-        print("Gagal menambah item karena ID tidak valid.")
+        print("Gagal menghapus item karena ID tidak valid.")
     else: 
         if(not is_id_available(id, datas)):
-            print("Gagal menambah item karena ID tidak ada.")
+            print("Gagal menghapus item karena ID tidak ada.")
 
     if (is_id_valid(id)) and (is_id_available(id, datas)) : 
         Pilihan = input("Apakah yakin anda mau menghapus gadget tersebut (Y/N)? ")
