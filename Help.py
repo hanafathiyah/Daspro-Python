@@ -3,7 +3,7 @@ import data
 def help():    
     role_user = data.user_login[5]
 
-    if(role_user == "Admin"):
+    if(role_user == "admin"):
         print("register \t", end=" "),           print("mendaftarkan pengguna baru")
         print("carirarity \t", end=" "),         print("mencari gadget dengan rarity tertentu")
         print("caritahun \t", end=" "),          print("mencari gadget berdasarkan tahun ditemukan")

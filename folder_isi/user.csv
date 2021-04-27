@@ -1,10 +1,10 @@
 ﻿id, username, nama, alamat, password, role
+0, Admin, Admin, Jalan Ganesha, Admin, admin
 1, abcd, Dora, jalan abcdef, 1234, user
-2, Admin, Admin, Jalan Ganesha, Admin, admin
-3, Hana, Hana Fathiyah, Cimahi, HelloHana, user
-4, Akmal, Akmal Arifin, Sidoarjo, HelloAkmal, user
-5, Kofifan, Kofifan Hertza, Banding, HelloKofin, user
-6, Natasha, Natasha Silaban, Medan, HelloNatasha, user
-7, TuanMor, Tuan Mor, Olympia, HelloTuanMor, user
-8, TuanVin, Tuan Vin, Olympia, HelloTuanVin, user
-9, TuanYon, Tuan Yon, Olympia, HelloTuanYon, user
+2, Hana, Hana Fathiyah, Cimahi, HelloHana, user
+3, Akmal, Akmal Arifin, Sidoarjo, HelloAkmal, user
+4, Kofifan, Kofifan Hertza, Banding, HelloKofin, user
+5, Natasha, Natasha Silaban, Medan, HelloNatasha, user
+6, TuanMor, Tuan Mor, Olympia, HelloTuanMor, user
+7, TuanVin, Tuan Vin, Olympia, HelloTuanVin, user
+8, TuanYon, Tuan Yon, Olympia, HelloTuanYon, user

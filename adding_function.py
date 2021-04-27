@@ -67,7 +67,7 @@ def isGadgetOrConsumable(id): # mengecek apakah item tersebut gadget atau consum
 
 def isAdmin(): # memvalidasi apakah role dari pengguna merupakan admin atau bukan
     admin = False # inisialisasi
-    if(data.user_login[5] == "Admin"): # pengguna adalah admin
+    if(data.user_login[5] == "admin"): # pengguna adalah admin
         admin = True
     return admin 
 
