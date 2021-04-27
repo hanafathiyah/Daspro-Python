@@ -1,38 +1,42 @@
 import data
 from LoadData import load_data
 from adding_function import banyak_data
+from adding_function import isAdmin
 
 load_data("folder_isi")
 
 def register():
-    new_user = []
-    datas = []
-    datas = data.user
+    if not isAdmin(): # Jika role bukan admin
+        print("register hanya dapat diakses oleh Admin.")
+    else: # Jika role adalah admin
+        new_user = []
+        datas = []
+        datas = data.user
 
-    print(">> register")
-    new_user_idx = datas[-1][0] + 1
-    new_user_name = input("Masukkan nama: ")
-    upper_new_user_name = new_user_name.title()
+        print(">> register")
+        new_user_idx = datas[-1][0] + 1
+        new_user_name = input("Masukkan nama: ")
+        upper_new_user_name = new_user_name.title()
 
-    # Ngecek apakah username sudah unik sebelum melanjutkan regis
-    is_unique = False
-    while not(is_unique) :
-        new_user_username = input("Masukkan username: ") 
-        is_ketemu = False
-        for array in (datas):
-            if array[1] == new_user_username:
-                is_ketemu = True
-                print("\nUsername telah digunakan") 
-                print("Silahkan masukkan username lain.\n")
-                break
-        if not(is_ketemu):
-            is_unique = True
+        # Ngecek apakah username sudah unik sebelum melanjutkan regis
+        is_unique = False
+        while not(is_unique) :
+            new_user_username = input("Masukkan username: ") 
+            is_ketemu = False
+            for array in (datas):
+                if array[1] == new_user_username:
+                    is_ketemu = True
+                    print("\nUsername telah digunakan") 
+                    print("Silahkan masukkan username lain.\n")
+                    break
+            if not(is_ketemu):
+                is_unique = True
 
-    new_user_addres = input("Masukkan alamat: ")
-    new_user_password = input("Masukkan password: ")
-    new_user_role = "User"
-    new_user = [new_user_idx, new_user_username, upper_new_user_name, new_user_addres, new_user_password, new_user_role]
+        new_user_addres = input("Masukkan alamat: ")
+        new_user_password = input("Masukkan password: ")
+        new_user_role = "User"
+        new_user = [new_user_idx, new_user_username, upper_new_user_name, new_user_addres, new_user_password, new_user_role]
 
-    print("\nUser", new_user_username, "telah berhasil register ke dalam Kantong Ajaib.")
+        print("\nUser", new_user_username, "telah berhasil register ke dalam Kantong Ajaib.")
 
-    data.user.append(new_user)
+        data.user.append(new_user)
