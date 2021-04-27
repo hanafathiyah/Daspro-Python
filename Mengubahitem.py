@@ -11,6 +11,12 @@ from adding_function import banyak_data
 
 load_data("folder_isi")
 def mengubah_jumlah_item() :
+    role_user = data.user_login[5]
+
+    # Validasi role user 
+    if (role_user != 'Admin') :
+        return print("Fungsi ini hanya dapat diakses oleh admin")
+    
     id = input("Masukan ID: ")
     if (isGadgetOrConsumable(id) == "gadget"): # Data yang di Load Gadget
         datas = data.gadget
@@ -19,10 +25,10 @@ def mengubah_jumlah_item() :
     
     # Verifikasi ID
     if (not is_id_valid(id)): 
-        print("Gagal menambah item karena ID tidak valid.")
+        print("Gagal mengubah jumlah item karena ID tidak valid.")
     else: 
         if(not is_id_available(id, datas)):
-            print("Gagal menambah item karena ID tidak ada.")
+            print("Gagal mengubah jumlah item karena ID tidak ada.")
 
     if (is_id_valid(id)) and (is_id_available(id, datas)) : 
         jumlah_diganti = int(input("Masukkan jumlah : ")) # Input jumlah yang akan diubah
