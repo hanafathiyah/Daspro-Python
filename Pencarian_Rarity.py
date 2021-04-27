@@ -1,18 +1,23 @@
 import data
 from LoadData import load_data
+from adding_function import isAdmin
+from adding_function import isUser
 
 load_data("folder_isi")
 
 def mencari_rarity() :
-  datas = data.gadget
-  print(">>> carirarity")
-  rarity = input("Masukkan rarity: ")
-  print("\nHasil pencarian:\n")
+    if not isAdmin() or not isUser(): # Jika role bukan admin atau bukan user
+        print("carirarity hanya dapat diakses oleh Admin atau User.")
+    else: # Jika role adalah admin atau user
+        datas = data.gadget
+        print(">>> carirarity")
+        rarity = input("Masukkan rarity: ")
+        print("\nHasil pencarian:\n")
 
-  for array in (datas):
-    if (rarity == array[4]):
-      print("Nama :", array[1])
-      print("Deskripsi :", array[2])
-      print("Jumlah :", array[3], "buah")
-      print("Rarity :", array[4])
-      print("Tahun Ditemukan :", array[5] ,"\n")
+        for array in (datas):
+            if (rarity == array[4]):
+                print("Nama :", array[1])
+                print("Deskripsi :", array[2])
+                print("Jumlah :", array[3], "buah")
+                print("Rarity :", array[4])
+                print("Tahun Ditemukan :", array[5] ,"\n")
