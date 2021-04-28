@@ -12,7 +12,7 @@ from LoadData import load_data
 # prosedur melihat riwayat peminjaman gadget
 def riwayatpinjam():
     if not isAdmin(): # validasi akses : akses tidak diizinkan
-        print("riwayatpinjam hanya dapat diakses oleh Admin.")
+        print("Fungsi ini hanya dapat diakses oleh Admin.")
     else: # validasi akses : akses diizinkan
         datas = data.gadget_borrow_history
         f = "riwayatpinjam"

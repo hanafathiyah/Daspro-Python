@@ -12,7 +12,7 @@ from LoadData import load_data
 # prosedur melihat riwayat pengembalian gadget
 def riwayatkembali():
     if not isAdmin(): # validasi akses : akses tidak diizinkan
-        print("riwayatkembali hanya dapat diakses oleh Admin.")
+        print("Fungsi ini hanya dapat diakses oleh Admin.")
     else: # validasi akses : akses diizinkan
         datas = data.gadget_return_history
         f = "riwayatkembali"

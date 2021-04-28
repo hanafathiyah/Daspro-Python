@@ -1,10 +1,11 @@
 import data
+from adding_function import isUser
 
 def minta_consume():
     role_user = data.user_login[5]
     
     # validasi role user
-    if (role_user != "user"):
+    if (not isUser()):
         return print("Fungsi ini hanya dapat diakses oleh User")
 
 

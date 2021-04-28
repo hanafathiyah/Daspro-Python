@@ -7,14 +7,14 @@ from adding_function import find_raw
 from adding_function import is_rarity_valid
 from adding_function import isGadgetOrConsumable
 from adding_function import banyak_data
-
+from adding_function import isAdmin
 
 # load_data("folder_isi")
 def mengubah_jumlah_item() :
     role_user = data.user_login[5]
 
     # Validasi role user 
-    if (role_user != 'Admin') :
+    if (not isAdmin()) :
         return print("Fungsi ini hanya dapat diakses oleh admin")
     
     id = input("Masukan ID: ")

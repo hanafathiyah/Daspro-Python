@@ -7,9 +7,6 @@ from adding_function import isUser
 # load_data("folder_isi")
 
 def mencari_rarity() :
-    if not isAdmin() or not isUser(): # Jika role bukan admin atau bukan user
-        print("carirarity hanya dapat diakses oleh Admin atau User.")
-    else: # Jika role adalah admin atau user
         datas = data.gadget
         print(">>> carirarity")
         rarity = input("Masukkan rarity: ")

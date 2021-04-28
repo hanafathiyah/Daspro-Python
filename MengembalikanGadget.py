@@ -3,6 +3,7 @@ from LoadData import load_data
 from adding_function import banyak_data
 from adding_function import find_gadget_name_id
 from adding_function import is_tanggal_valid
+from adding_function import isUser
 
 
 # Command buat pengen test
@@ -13,7 +14,7 @@ def mengembalikan_gadget() :
     role_user = data.user_login[5]
 
     # Validasi role user 
-    if (role_user != 'user') :
+    if (not isUser()):
         return print("Fungsi ini hanya dapat diakses oleh user")
 
     

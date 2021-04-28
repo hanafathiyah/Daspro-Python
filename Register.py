@@ -7,7 +7,7 @@ from adding_function import isAdmin
 
 def register():
     if not isAdmin(): # Jika role bukan admin
-        print("register hanya dapat diakses oleh Admin.")
+        print("Fungsi ini hanya dapat diakses oleh Admin.")
     else: # Jika role adalah admin
         new_user = []
         datas = []

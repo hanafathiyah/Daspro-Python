@@ -16,7 +16,7 @@ from adding_function import isAdmin
 # prosedur menambah item
 def tambah_item(): 
     if not isAdmin(): # validasi akses : akses tidak diizinkan
-        print("tambahitem hanya dapat diakses oleh Admin.")
+        print("Fungsi ini hanya dapat diakses oleh Admin.")
     else: # validasi akses : akses diizinkan
         new_item = []
         datas = []

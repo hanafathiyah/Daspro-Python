@@ -18,9 +18,7 @@ def hasil_kategori(kategori,array,tahun):
         return (array[5] <= tahun)
 
 def mencari_tahun() :
-    if not isAdmin() or not isUser(): # Jika role bukan admin atau bukan user
-        print("caritahun hanya dapat diakses oleh Admin atau User.")
-    else: # Jika role adalah admin atau user
+
         datas = data.gadget
 
         print(">>> caritahun")

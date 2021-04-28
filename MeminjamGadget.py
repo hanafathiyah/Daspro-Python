@@ -8,6 +8,7 @@ from adding_function import isGadgetOrConsumable
 from adding_function import banyak_data
 from adding_function import is_tanggal_valid
 from adding_function import find_gadget_name_id
+from adding_function import isUser
 
 
 # Keperluan testing
@@ -19,7 +20,7 @@ def pinjam():
     id_username = data.user_login[0]
 
     # Validasi role user 
-    if (role_user != 'user') :
+    if (not isUser()) :
         return print("Fungsi ini hanya dapat diakses oleh user")
 
     datas = data.gadget

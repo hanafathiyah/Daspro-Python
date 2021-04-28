@@ -12,7 +12,7 @@ from LoadData import load_data
 # prosedur melihat riwayat pengambilan consumable
 def riwayatambil():
     if not isAdmin(): # validasi akses : akses tidak diizinkan
-        print("riwayatambil hanya dapat diakses oleh Admin.")
+        print("Fungsi ini hanya dapat diakses oleh Admin.")
     else: # validasi akses : akses diizinkan
         datas = data.consumable_history
         f = "riwayatambil"
