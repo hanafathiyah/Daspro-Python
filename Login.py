@@ -2,7 +2,7 @@ import data
 from LoadData import load_data
 from adding_function import banyak_data
 
-load_data("folder_isi")
+# load_data("folder_isi")
 
 def is_username_valid(user_username,datas):
     i = 0
