@@ -7,7 +7,7 @@ from adding_function import isAdmin
 from adding_function import sortTanggal
 from LoadData import load_data
 
-load_data("folder_isi")
+# load_data("folder_isi")
 
 # prosedur melihat riwayat peminjaman gadget
 def riwayatpinjam():

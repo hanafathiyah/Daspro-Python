@@ -22,9 +22,6 @@ def pinjam():
     if (role_user != 'user') :
         return print("Fungsi ini hanya dapat diakses oleh user")
 
-    
-
-
     datas = data.gadget
     id = input("Masukan ID: ")
      # Verifikasi ID

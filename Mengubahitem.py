@@ -9,7 +9,7 @@ from adding_function import isGadgetOrConsumable
 from adding_function import banyak_data
 
 
-load_data("folder_isi")
+# load_data("folder_isi")
 def mengubah_jumlah_item() :
     role_user = data.user_login[5]
 

@@ -3,7 +3,7 @@ from LoadData import load_data
 from adding_function import banyak_data
 from adding_function import isAdmin
 
-load_data("folder_isi")
+# load_data("folder_isi")
 
 def register():
     if not isAdmin(): # Jika role bukan admin

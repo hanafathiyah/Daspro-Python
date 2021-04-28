@@ -3,7 +3,8 @@ from LoadData import load_data
 from adding_function import isAdmin
 from adding_function import isUser
 
-load_data("folder_isi")
+
+# load_data("folder_isi")
 
 def mencari_rarity() :
     if not isAdmin() or not isUser(): # Jika role bukan admin atau bukan user

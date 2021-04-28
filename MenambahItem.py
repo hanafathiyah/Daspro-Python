@@ -11,7 +11,7 @@ from adding_function import isGadgetOrConsumable
 from adding_function import banyak_data
 from adding_function import isAdmin
 
-load_data("folder_isi")
+# load_data("folder_isi")
 
 # prosedur menambah item
 def tambah_item(): 

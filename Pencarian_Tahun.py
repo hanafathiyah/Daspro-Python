@@ -3,7 +3,7 @@ from LoadData import load_data
 from adding_function import isAdmin
 from adding_function import isUser
 
-load_data("folder_isi")
+# load_data("folder_isi")
 
 def hasil_kategori(kategori,array,tahun):
     if kategori == '=':
