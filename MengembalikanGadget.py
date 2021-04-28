@@ -79,6 +79,15 @@ def mengembalikan_gadget() :
 
                                 else : 
                                     Total_pengembalian = Jumlah_pengembalian # Untuk di array pengembalian
+                                    
+                                    dataz = data.gadget
+                                    k = 0
+                                    while k < banyak_data(dataz) : 
+                                        if dataz[k][0] == id_gadget : 
+                                            dataz[k][3] += Jumlah_pengembalian
+                                            k += 1 
+                                        else :
+                                            k += 1
 
                                     # Proses pengembalian gadget
                                     j = 0
