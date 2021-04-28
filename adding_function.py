@@ -1,6 +1,6 @@
 import data
 from LoadData import load_data
-load_data("folder_isi")
+# load_data("folder_isi")
 
 ## Fungsi menghitung banyak data dalam sebuah array
 
