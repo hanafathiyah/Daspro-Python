@@ -73,7 +73,7 @@ def isAdmin(): # memvalidasi apakah role dari pengguna merupakan admin atau buka
 
 def isUser(): # memvalidasi apakah role dari pengguna merupakan user atau bukan
     user = False # inisialiasi
-    if(data.user_login[5] == "User"): # pengguna adalah user
+    if(data.user_login[5] == "user"): # pengguna adalah user
         user = True
     return user  
 
