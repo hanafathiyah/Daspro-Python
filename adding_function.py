@@ -2,7 +2,7 @@ import data
 from LoadData import load_data
 load_data("folder_isi")
 
-## Fungsi menghitung banyak data dalam sebuah array
+## Prosedur menghitung banyak data dalam sebuah array
 
 def banyak_data(datas): # menghitung banyak data
     cnt = 0 # inisialisasi
@@ -10,7 +10,7 @@ def banyak_data(datas): # menghitung banyak data
         cnt += 1
     return(cnt) # banyak data
 
-## Fungsi mencari dan translasi
+## Prosedur mencari dan translasi
 
 def find_raw(id, datas): # mencari letak id (dalam baris)
     i = 0 # inisialisasi
@@ -55,7 +55,7 @@ def find_consumable_name_id(id): # mencari nama consumable berdasarkan id
             i += 1
     return datas[i][1]
 
-## Fungsi mengecek jenis item berdasarkan ID
+## Prosedur mengecek jenis item berdasarkan ID
 
 def isGadgetOrConsumable(id): # mengecek apakah item tersebut gadget atau consumable
     if (id[0] == "G"): # item adalah gadget
@@ -63,11 +63,11 @@ def isGadgetOrConsumable(id): # mengecek apakah item tersebut gadget atau consum
     else: # item adalah consumable
         return "consumable"
 
-## Fungsi validasi role
+## Prosedur validasi role
 
 def isAdmin(): # memvalidasi apakah role dari pengguna merupakan admin atau bukan
     admin = False # inisialisasi
-    if(data.user_login[5] == "Admin"): # pengguna adalah admin
+    if(data.user_login[5] == "admin"): # pengguna adalah admin
         admin = True
     return admin 
 
@@ -77,7 +77,7 @@ def isUser(): # memvalidasi apakah role dari pengguna merupakan user atau bukan
         user = True
     return user  
 
-## Fungsi mengecek ketersediaan ID dalam data
+## Prosedur mengecek ketersediaan ID dalam data
 
 def is_id_available(id,datas): # mengecek ketersediaan id dalam database
     i = 0 # inisialisasi
@@ -89,7 +89,7 @@ def is_id_available(id,datas): # mengecek ketersediaan id dalam database
             i += 1
     return available
 
-## Fungsi validasi data
+## Prosedur validasi data
 
 def is_id_valid(id): # validasi id
     valid = False # inisialisasi
@@ -123,7 +123,7 @@ def is_tahun_valid(tahun): # validasi tahun
     else: # tahun bukan merupakan angka
         return False
 
-## Fungsi sortTanggal (untuk membantu perintah riwayat)
+## Prosedur sortTanggal (untuk membantu perintah riwayat)
 
 def sortTanggal(arr,f): # mengurutkan data descending berdasarkan tanggal menggunakan selection sort
 
@@ -192,4 +192,61 @@ def sortTanggal(arr,f): # mengurutkan data descending berdasarkan tanggal menggu
 
     return datas
 
+def is_tanggal_valid(tanggal):
+    
+    kata = ""
+    array_tanggal = []
 
+    for char in tanggal:
+        if char == "/":
+            array_tanggal.append(kata)
+            kata = ""
+        else:
+            kata += char
+    array_tanggal.append(kata)
+
+    # validasi format tanggal
+    if(len(array_tanggal) != 3):
+        return False
+    
+    # validasi tanggal berupa integer
+    try:
+        tanggal_input = int(array_tanggal[0])
+        bulan_input = int(array_tanggal[1])
+        tahun_input = int(array_tanggal[2])
+    except ValueError:
+        return False
+
+    is_kabisat = False
+    if(tahun_input % 4 == 0):
+        is_kabisat = True
+    
+    is_bulan_genap = False
+    if(bulan_input % 2 == 0):
+        is_bulan_genap = True
+    
+    # validasi tahun
+    if(tahun_input <= 0):
+        return False
+
+    # validasi bulan
+    if(bulan_input <= 0 or bulan_input > 12):
+        return False
+    
+    # valdiasi tanggal
+    if(is_bulan_genap):
+        if(bulan_input == 2 and is_kabisat):
+            if(tanggal_input <= 0 or tanggal_input > 29):
+                return False
+        elif(bulan_input == 2):
+            if(tanggal_input <= 0 or tanggal_input > 28):
+                return False
+        else:
+            if(tanggal_input <=0 or tanggal_input > 30):
+                return False
+    
+    else:
+        if(tanggal_input <= 0 or tanggal_input > 31):
+            return False
+    
+    return True
