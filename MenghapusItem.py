@@ -7,7 +7,7 @@ from adding_function import is_rarity_valid
 from adding_function import isGadgetOrConsumable
 from adding_function import banyak_data
 
-load_data('folder_isi')
+# load_data('folder_isi')
 
 def mengapus_item() :
     role_user = data.user_login[5]
