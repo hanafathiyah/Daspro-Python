@@ -34,7 +34,7 @@ def register():
 
         new_user_addres = input("Masukkan alamat: ")
         new_user_password = input("Masukkan password: ")
-        new_user_role = "User"
+        new_user_role = "user"
         new_user = [new_user_idx, new_user_username, upper_new_user_name, new_user_addres, new_user_password, new_user_role]
 
         print("\nUser", new_user_username, "telah berhasil register ke dalam Kantong Ajaib.")
