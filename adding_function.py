@@ -2,7 +2,7 @@ import data
 from LoadData import load_data
 load_data("folder_isi")
 
-## Prosedur menghitung banyak data dalam sebuah array
+## Fungsi menghitung banyak data dalam sebuah array
 
 def banyak_data(datas): # menghitung banyak data
     cnt = 0 # inisialisasi
@@ -10,7 +10,7 @@ def banyak_data(datas): # menghitung banyak data
         cnt += 1
     return(cnt) # banyak data
 
-## Prosedur mencari dan translasi
+## Fungsi mencari dan translasi
 
 def find_raw(id, datas): # mencari letak id (dalam baris)
     i = 0 # inisialisasi
@@ -55,7 +55,7 @@ def find_consumable_name_id(id): # mencari nama consumable berdasarkan id
             i += 1
     return datas[i][1]
 
-## Prosedur mengecek jenis item berdasarkan ID
+## Fungsi mengecek jenis item berdasarkan ID
 
 def isGadgetOrConsumable(id): # mengecek apakah item tersebut gadget atau consumable
     if (id[0] == "G"): # item adalah gadget
@@ -63,7 +63,7 @@ def isGadgetOrConsumable(id): # mengecek apakah item tersebut gadget atau consum
     else: # item adalah consumable
         return "consumable"
 
-## Prosedur validasi role
+## Fungsi validasi role
 
 def isAdmin(): # memvalidasi apakah role dari pengguna merupakan admin atau bukan
     admin = False # inisialisasi
@@ -77,7 +77,7 @@ def isUser(): # memvalidasi apakah role dari pengguna merupakan user atau bukan
         user = True
     return user  
 
-## Prosedur mengecek ketersediaan ID dalam data
+## Fungsi mengecek ketersediaan ID dalam data
 
 def is_id_available(id,datas): # mengecek ketersediaan id dalam database
     i = 0 # inisialisasi
@@ -89,7 +89,7 @@ def is_id_available(id,datas): # mengecek ketersediaan id dalam database
             i += 1
     return available
 
-## Prosedur validasi data
+## Fungsi validasi data
 
 def is_id_valid(id): # validasi id
     valid = False # inisialisasi
@@ -123,7 +123,7 @@ def is_tahun_valid(tahun): # validasi tahun
     else: # tahun bukan merupakan angka
         return False
 
-## Prosedur sortTanggal (untuk membantu perintah riwayat)
+## Fungsi sortTanggal (untuk membantu perintah riwayat)
 
 def sortTanggal(arr,f): # mengurutkan data descending berdasarkan tanggal menggunakan selection sort
 
