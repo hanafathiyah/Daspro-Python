@@ -74,7 +74,7 @@ def pinjam():
                         id_transaksi += 1
 
                 # Penambahan pada array
-                new_peminjaman = [id_transaksi,id_username, id, tgl, jumlah, is_returned]
+                new_peminjaman = [id_transaksi,id_username, id, tgl, jumlah, is_returned, jumlah]
                 data.gadget_borrow_history.append(new_peminjaman)
 
 

@@ -33,7 +33,7 @@ def mengembalikan_gadget() :
 
                     # Pengambilan keterangan gadget yang dipinjam (id & Jumlah)
                     id_gadget = datas[i][2]
-                    Jumlah_Gadget_dipinjam = datas[i][4]
+                    Jumlah_Gadget_dipinjam = datas[i][6]
 
                     
                     # Pembuatan Array ID gadget yang dipinjam
@@ -44,7 +44,7 @@ def mengembalikan_gadget() :
                     gadget_dipinjam.append((datas[i][0]))
 
 
-                    Jumlah_Gadget_dipinjam = datas[i][4] 
+                    Jumlah_Gadget_dipinjam = datas[i][6] 
                     jumlah_dipinjam.append(Jumlah_Gadget_dipinjam)
 
                     print(f'{a}. {find_gadget_name_id(id_gadget)}')
@@ -85,12 +85,12 @@ def mengembalikan_gadget() :
                                     while j < banyak_data(datas) :
                                         if (datas[j][1] == id_username) and (datas[j][5] == 'False') and (datas[j][2] == id_gadget) :
                                             id_transaksi = datas[j][0]
-                                            if Jumlah_pengembalian >= datas [j][4] : 
-                                                Jumlah_pengembalian -= datas[j][4]
-                                                datas[j][4] = 0 
+                                            if Jumlah_pengembalian >= datas [j][6] : 
+                                                Jumlah_pengembalian -= datas[j][6]
+                                                datas[j][6] = 0 
                                                 datas[j][5] = 'True'
                                             else :
-                                                datas[j][4] -= Jumlah_pengembalian
+                                                datas[j][6] -= Jumlah_pengembalian
                                                 Jumlah_pengembalian = 0
                                             j += 1
                                         else :
