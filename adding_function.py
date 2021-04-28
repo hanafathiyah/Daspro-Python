@@ -241,12 +241,18 @@ def is_tanggal_valid(tanggal):
         elif(bulan_input == 2):
             if(tanggal_input <= 0 or tanggal_input > 28):
                 return False
-        else:
-            if(tanggal_input <=0 or tanggal_input > 30):
+        elif(bulan_input <= 7):
+            if(tanggal_input <= 0 or tanggal_input > 30):
                 return False
+        else:
+            if(tanggal_input <= 0 or tanggal_input > 31):
     
     else:
-        if(tanggal_input <= 0 or tanggal_input > 31):
-            return False
+        if(bulan_input <=7):
+            if(tanggal_input <= 0 or tanggal_input > 31):
+                return False
+        else:
+            if(tanggal_input <= 0 or tanggal_input > 30):
+                return False
     
     return True
