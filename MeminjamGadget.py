@@ -27,9 +27,9 @@ def pinjam():
     id = input("Masukan ID: ")
      # Verifikasi ID
     if (not is_id_valid(id)): 
-        print("Gagal menambah item karena ID tidak valid.") 
+        print("Gagal meminjam item karena ID tidak valid.") 
     elif(not is_id_available(id, datas)):
-            print("Gagal menambah item karena ID tidak ada.")
+            print("Gagal meminjam item karena ID tidak ada.")
 
     # Verifikasi apakah gadget sudah dipinjam atau belum
     datax = data.gadget_borrow_history

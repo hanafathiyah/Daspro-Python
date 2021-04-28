@@ -36,6 +36,7 @@ def mengapus_item() :
             i = 0
             while i < banyak_data(datas) :
                 if (datas[i][0] == id):
+                    print(f'Item {datas[i][0]} berhasil dihapus! ')
                     datas.pop(i)    # Menghapus Data
                 else:
                     i += 1
