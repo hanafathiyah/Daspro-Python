@@ -35,7 +35,7 @@ def pinjam():
     datax = data.gadget_borrow_history
     j = 0 
     while j < banyak_data(datax) : 
-        if id_username == datax[j][1] and id == datax[j][2] : 
+        if id_username == datax[j][1] and id == datax[j][2]  and datax[j][5] == 'False' :
             print(f'Anda tercatat sudah meminjam gadget {find_gadget_name_id(datax[j][2])}')
             break
         else :
