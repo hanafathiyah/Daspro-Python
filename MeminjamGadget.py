@@ -41,7 +41,7 @@ def pinjam():
         else :
             j += 1
     
-    else : 
+    if (is_id_valid(id) and is_id_available(id, datas)) :
         tgl = input("Tanggal peminjaman: ")
         if (not is_tanggal_valid(tgl)) : 
             print("Tanggal peminjaman tidak valid !")
