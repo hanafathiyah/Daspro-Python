@@ -34,14 +34,16 @@ def pinjam():
     # Verifikasi apakah gadget sudah dipinjam atau belum
     datax = data.gadget_borrow_history
     j = 0 
+    is_borrowed = False
     while j < banyak_data(datax) : 
         if id_username == datax[j][1] and id == datax[j][2] : 
             print(f'Anda tercatat sudah meminjam gadget {find_gadget_name_id(datax[j][2])}')
+            is_borrowed = True
             break
         else :
             j += 1
     
-    if (is_id_valid(id) and is_id_available(id, datas)) :
+    if (is_id_valid(id) and is_id_available(id, datas) and is_borrowed == False) :
         tgl = input("Tanggal peminjaman: ")
         if (not is_tanggal_valid(tgl)) : 
             print("Tanggal peminjaman tidak valid !")
