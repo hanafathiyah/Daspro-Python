@@ -42,10 +42,10 @@ def save_data():
     print("\nData berhasil disimpan ke dalam folder %s" % folder_penyimpanan)
 
 def convert_data_to_string(file_data, file_header):
-    string_data = ", ".join(file_header)
+    string_data = ";".join(file_header)
     string_data += "\n"
     for arr_data in file_data:
         arr_data_all_string = [str(var) for var in arr_data]
-        string_data += ", ".join(arr_data_all_string)
+        string_data += ";".join(arr_data_all_string)
         string_data += "\n"
     return string_data

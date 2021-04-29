@@ -28,7 +28,7 @@ def mengembalikan_gadget() :
     id_gadget_dipinjam = []
     jumlah_dipinjam = []
     while i < banyak_data(datas) :
-                if (datas[i][1] == id_username) and (datas[i][5] == 'False') :
+                if (datas[i][1] == id_username) and (datas[i][5] == False) :
                     a += 1
 
                     # Pengambilan keterangan gadget yang dipinjam (id & Jumlah)
@@ -92,12 +92,12 @@ def mengembalikan_gadget() :
                                     # Proses pengembalian gadget
                                     j = 0
                                     while j < banyak_data(datas) :
-                                        if (datas[j][1] == id_username) and (datas[j][5] == 'False') and (datas[j][2] == id_gadget) :
+                                        if (datas[j][1] == id_username) and (datas[j][5] == False) and (datas[j][2] == id_gadget) :
                                             id_transaksi = datas[j][0]
                                             if Jumlah_pengembalian >= datas [j][6] : 
                                                 Jumlah_pengembalian -= datas[j][6]
                                                 datas[j][6] = 0 
-                                                datas[j][5] = 'True'
+                                                datas[j][5] = True
                                             else :
                                                 datas[j][6] -= Jumlah_pengembalian
                                                 Jumlah_pengembalian = 0

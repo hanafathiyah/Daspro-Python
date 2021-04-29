@@ -246,6 +246,7 @@ def is_tanggal_valid(tanggal):
                 return False
         else:
             if(tanggal_input <= 0 or tanggal_input > 31):
+                return False
     
     else:
         if(bulan_input <=7):

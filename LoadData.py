@@ -48,7 +48,7 @@ def convert_lines_to_raw_data(lines):
         raw_line_list = []
         kata = ''
         for char in line:
-            if char == ',':
+            if char == ';':
                 raw_line_list.append(kata)
                 kata = ''
             else:
@@ -66,7 +66,11 @@ def convert_raw_data_to_data(raw_data):
     for i in range(len(raw_data)):          # i sebagai baris
         for j in range(len(raw_data[i])):   # j sebagai kolom
             if is_number(data_cpy[i][j]):
-                data_cpy[i][j] = int(data_cpy[i][j])    
+                data_cpy[i][j] = int(data_cpy[i][j])
+            elif data_cpy[i][j] == "False":
+                data_cpy[i][j] = False
+            elif data_cpy[i][j] == "True":
+                data_cpy[i][j] = True
     return(data_cpy)
 
 def is_number(s): # menghasilkan true apabila string berupa angka

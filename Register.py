@@ -1,9 +1,7 @@
 import data
-from LoadData import load_data
+from Hashing import hashing
 from adding_function import banyak_data
 from adding_function import isAdmin
-
-# load_data("folder_isi")
 
 def register():
     if not isAdmin(): # Jika role bukan admin
@@ -35,7 +33,8 @@ def register():
         new_user_addres = input("Masukkan alamat: ")
         new_user_password = input("Masukkan password: ")
         new_user_role = "user"
-        new_user = [new_user_idx, new_user_username, upper_new_user_name, new_user_addres, new_user_password, new_user_role]
+        new_user_hashing = hashing(new_user_password)
+        new_user = [new_user_idx, new_user_username, upper_new_user_name, new_user_addres, new_user_password, new_user_role, new_user_hashing]
 
         print("\nUser", new_user_username, "telah berhasil register ke dalam Kantong Ajaib.")
 

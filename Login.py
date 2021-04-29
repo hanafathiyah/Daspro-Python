@@ -1,5 +1,6 @@
 import data
 from LoadData import load_data
+from Hashing import hashing
 from adding_function import banyak_data
 
 # load_data("folder_isi")
@@ -8,7 +9,7 @@ def is_login_valid(user_username,user_password,datas):
     i = 0
     available = False
     while i < banyak_data(datas) and available == False:
-        if (datas[i][1] == user_username) and (datas[i][4] == user_password):
+        if (datas[i][1] == user_username) and (datas[i][4] == user_password) and (datas[i][6] == hashing(user)):
               available = True
         else:
             i += 1

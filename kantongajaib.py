@@ -44,7 +44,15 @@ def call_procedure(input_user):
     elif (input_user == "save"):                return save_data()
     elif (input_user == "help"):                return help()
     elif (input_user == "exit"):                return exit()
+    elif (input_user == "cetak"):               return cetak()
     else:                                       return print("coba ketik 'help'")
+
+def cetak():
+    for array in data.gadget_borrow_history:
+        print(array)
+    print("\n\n")
+    for array in data.gadget_return_history:
+        print(array)
 
 
 # pengaturan untuk membaca argumen pada saat pemanggilan program
