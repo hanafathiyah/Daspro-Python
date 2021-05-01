@@ -9,7 +9,7 @@ def is_login_valid(user_username,user_password,datas):
     i = 0
     available = False
     while i < banyak_data(datas) and available == False:
-        if (datas[i][1] == user_username) and (datas[i][4] == user_password) and (datas[i][6] == hashing(user)):
+        if (datas[i][1] == user_username) and (datas[i][4] == user_password) and (datas[i][6] == hashing(user_password)):
               available = True
         else:
             i += 1

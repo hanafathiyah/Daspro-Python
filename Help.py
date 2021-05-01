@@ -11,7 +11,7 @@ def help():
         print("hapusitem \t", end=" "),          print("menghapus item pada database")
         print("ubahjumlah \t", end=" "),         print("mengubah jumlah gadget atau consumable")
         print("riwayatpinjam \t", end=" "),      print("mencetak riwayat peminjaman gadget")
-        print("riwayatkembali \t", end=" "),     print("mecetak riwayat pengembalian gadget")
+        print("riwayatkembali \t", end=" "),     print("mencetak riwayat pengembalian gadget")
         print("riwayatambil \t", end=" "),       print("mencetak riwayat pengambilan consumable")
         print("save \t\t", end=" "),             print("melakukan penyimpanan data ke dalam file")
         print("help \t\t", end=" "),             print("mencetak prosedur untuk memberikan panduan")
