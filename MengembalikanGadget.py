@@ -84,7 +84,7 @@ def mengembalikan_gadget() :
                                     k = 0
                                     while k < banyak_data(dataz) : 
                                         if dataz[k][0] == id_gadget : 
-                                            dataz[k][3] += (Jumlah_pengembalian + 1)
+                                            dataz[k][3] += Jumlah_pengembalian
                                             k += 1 
                                         else :
                                             k += 1
