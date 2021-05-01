@@ -42,7 +42,7 @@ def tambah_item():
                         print("Input rarity tidak valid!")
                     else: # validasi rarity : rarity valid
                         if (isGadgetOrConsumable(id) == "consumable"):
-                            new_item = [id,nama,deskripsi,jumlah,rarity]
+                            new_item = [id,nama,deskripsi,int(jumlah),rarity]
                             data.consumable.append(new_item) # menambahkan item baru pada array consumable
                             print("Item telah berhasil ditambahkan ke database.")
                         else:
@@ -50,6 +50,6 @@ def tambah_item():
                             if (not is_tahun_valid(tahun_ditemukan)): # validasi tahun ditemukan : tahun tidak valid
                                 print("Input tahun tidak valid!")
                             else: # validasi tahun ditemukan : tahun valid
-                                new_item = [id,nama,deskripsi,jumlah,rarity,tahun_ditemukan]
+                                new_item = [id,nama,deskripsi,int(jumlah),rarity,tahun_ditemukan]
                                 data.gadget.append(new_item) # menambahkan item baru pada array gadget
                                 print("Item telah berhasil ditambahkan ke database.")
