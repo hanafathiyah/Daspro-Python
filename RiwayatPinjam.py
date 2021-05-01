@@ -23,7 +23,7 @@ def riwayatpinjam():
             print("Nama Pengambil\t\t:", find_user_name_id(datas_sort[i][1])) # translasi id user menjadi nama user
             print("Nama Gadget\t\t:", find_gadget_name_id(datas_sort[i][2])) # translasi id gadget menjadi nama gadget
             print("Tanggal Peminjaman\t:", datas_sort[i][3])
-            print("Jumlah\t\t\t:", datas_sort[i][6])
+            print("Jumlah\t\t\t:", datas_sort[i][4])
             print("")
             if ((i + 1) % 5 == 0): # apabila pengguna ingin mengeluarkan entry tambahan
                 tambahan = input("Next >> Y/N: ")
