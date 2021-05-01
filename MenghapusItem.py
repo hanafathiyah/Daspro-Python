@@ -37,7 +37,7 @@ def mengapus_item() :
             while i < banyak_data(datas) :
                 if (datas[i][0] == id):
                     print(f'Item {datas[i][0]} berhasil dihapus! ')
-                    datas.pop(i)    # Menghapus Data
+                    datas[0][3] = -1  # Menghapus Data
                 else:
                     i += 1
         elif Pilihan != 'N' : 
