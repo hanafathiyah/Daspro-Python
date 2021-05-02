@@ -1,0 +1,4 @@
+﻿id;username;nama;alamat;password;role;hashing
+0;Admin;Admin;Jalan Ganesha;Admin;admin;25
+1;demo;Demonstrasi;Jl. Pahlawan;demokuy;user;6
+2;demo2;Demonstrasi 2;Jl. Pahlawan;demokuy;user;6
